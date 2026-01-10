@@ -52,7 +52,7 @@ function ADHDMentalHealth() {
       specialization: 'Child & Adolescent ADHD',
       location: 'Manchester, United Kingdom',
       experience: '15 years experience',
-      price: '£680',
+      price: '£490',
       isAvailable: true,
       rating: 4.8,
       reviewCount: 178,
@@ -65,7 +65,7 @@ function ADHDMentalHealth() {
       specialization: 'Adult ADHD Assessment',
       location: 'Bristol, United Kingdom',
       experience: '12 years experience',
-      price: '£680',
+      price: '£300',
       isAvailable: true,
       rating: 4.9,
       reviewCount: 142,
@@ -91,11 +91,24 @@ function ADHDMentalHealth() {
       specialization: 'Women\'s ADHD & Mental Health',
       location: 'Birmingham, United Kingdom',
       experience: '14 years experience',
-      price: '£680',
+      price: '£580',
       isAvailable: true,
       rating: 4.7,
       reviewCount: 165,
       languages: ['English', 'Hindi', 'Gujarati'],
+      nextAvailable: 'Today, 6:00 PM'
+    },
+    {
+      id: 5,
+      name: 'Dr. Shaeel Javaid',
+      specialization: 'ADHD & Mental Health',
+      location: 'Birmingham, United Kingdom',
+      experience: '14 years experience',
+      price: '£400',
+      isAvailable: true,
+      rating: 4.7,
+      reviewCount: 165,
+      languages: ['English', 'Urdu'],
       nextAvailable: 'Today, 6:00 PM'
     }
   ];
@@ -612,18 +625,18 @@ function ADHDMentalHealth() {
         <div className="container">
           <div className="content-wrapper">
             <div className="content-main">
-              <h2><i className="fas fa-info-circle"></i> Understanding ADHD in the UK</h2>
+              <h2 className="section-title"> Understanding ADHD in the UK</h2>
               
               <p>Attention Deficit Hyperactivity Disorder (ADHD) is a neurodevelopmental condition that affects approximately 5% of children and 3-4% of adults in the United Kingdom. Despite common misconceptions, ADHD is not just a childhood condition - many adults continue to experience symptoms that significantly impact their daily lives, careers, and relationships.</p>
               
-              <h3><i className="fas fa-dna"></i> What is ADHD?</h3>
+              <h3> What is ADHD?</h3>
               <p>ADHD is characterized by persistent patterns of inattention, hyperactivity, and impulsivity that interfere with functioning or development. It's a genetic, brain-based condition that affects executive functions - the cognitive processes that help us plan, focus attention, remember instructions, and juggle multiple tasks successfully.</p>
               
               <div className="adhd-info-box">
-                <p><i className="fas fa-lightbulb"></i> Important: ADHD is not caused by poor parenting, too much sugar, or lack of discipline. It's a medical condition with strong genetic links, often running in families.</p>
+                <p>Important: ADHD is not caused by poor parenting, too much sugar, or lack of discipline. It's a medical condition with strong genetic links, often running in families.</p>
               </div>
               
-              <h3><i className="fas fa-clipboard-list"></i> Common ADHD Symptoms</h3>
+              <h3> Common ADHD Symptoms</h3>
               <p>ADHD symptoms can vary significantly between individuals and may change over time. The condition is typically categorized into three presentations:</p>
               
               <div className="adhd-types-grid">
@@ -643,8 +656,7 @@ function ADHDMentalHealth() {
                 ))}
               </div>
               
-              <h3><i className="fas fa-chart-line"></i> How ADHD Affects Daily Life</h3>
-              <p>Undiagnosed or untreated ADHD can significantly impact various aspects of life. Understanding these challenges is the first step toward effective management:</p>
+              <h3 className='ADHD-affects'>How ADHD Affects Daily Life</h3>
               
               <div className="impact-grid">
                 {lifeImpacts.map((impact, index) => (
@@ -659,7 +671,7 @@ function ADHDMentalHealth() {
               </div>
               
               <div className="treatment-process">
-                <h3><i className="fas fa-hand-holding-medical"></i> Comprehensive ADHD Treatment Approach</h3>
+                <h3>Comprehensive ADHD Treatment Approach</h3>
                 <p>Effective ADHD management typically involves a multimodal approach tailored to individual needs:</p>
                 
                 <div className="adhd-symptoms-grid">
@@ -676,7 +688,7 @@ function ADHDMentalHealth() {
                 </div>
               </div>
               
-              <h3><i className="fas fa-question-circle"></i> When to Seek an ADHD Assessment</h3>
+              <h3> When to Seek an ADHD Assessment</h3>
               <p>Consider seeking an ADHD assessment if you experience persistent difficulties with:</p>
               
               <ul>
@@ -692,7 +704,7 @@ function ADHDMentalHealth() {
                 <p><i className="fas fa-exclamation-triangle"></i> Many adults with ADHD have developed coping mechanisms that mask their symptoms. If you suspect you might have ADHD, a professional assessment can provide clarity and open doors to effective treatment.</p>
               </div>
               
-              <h3><i className="fas fa-stethoscope"></i> The UK ADHD Assessment Process</h3>
+              <h3> The UK ADHD Assessment Process</h3>
               <p>Our private ADHD assessment process follows National Institute for Health and Care Excellence (NICE) guidelines and includes:</p>
               
               <div className="process-steps">

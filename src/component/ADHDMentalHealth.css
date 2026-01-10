@@ -77,7 +77,7 @@
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 12px;
-  --spacing-lg: 20px;
+  --spacing-lg: 13px;
   --spacing-xl: 32px;
   --spacing-2xl: 48px;
   --spacing-3xl: 64px;
@@ -199,6 +199,7 @@
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
   letter-spacing: -0.01em;
+  align-items: center;
 }
 
 .adhd-hero h2 {
@@ -210,6 +211,8 @@
   position: relative;
   display: inline-block;
   padding: 0 var(--spacing-lg);
+  align-items: center;
+  
 }
 
 .hero-subtitle {
@@ -748,12 +751,6 @@
   gap: 2px;
 }
 
-.price-amount::before {
-  content: '£';
-  font-size: var(--font-size-base);
-  opacity: 0.8;
-}
-
 .doctor-actions {
   display: flex;
   gap: var(--spacing-sm);
@@ -769,7 +766,7 @@
   justify-content: center;
   gap: 4px;
   font-weight: var(--font-weight-semibold);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-lg);
   min-height: 36px;
 }
 
@@ -1172,9 +1169,7 @@
   border-color: var(--primary-blue-light);
 }
 
-.benefit-card:hover::before {
-  transform: scaleX(1);
-}
+
 
 .benefit-icon {
   font-size: 2rem;
@@ -1192,7 +1187,7 @@
 }
 
 .benefit-card:hover .benefit-icon {
-  transform: scale(1.1) rotate(8deg);
+  transform: scale(1) ;
   background: var(--gradient-primary);
   color: var(--white);
 }
@@ -1227,6 +1222,8 @@
 .adhd-content-section::before {
   content: '';
   position: absolute;
+  color: var(--primary-blue);
+  
   top: 0;
   left: 0;
   right: 0;
@@ -1405,7 +1402,6 @@
 .adhd-type-icon {
   width: 60px;
   height: 60px;
-  background: var(--gradient-primary);
   border-radius: var(--border-radius-md);
   display: flex;
   align-items: center;
@@ -1486,9 +1482,6 @@
   border-color: var(--primary-blue-light);
 }
 
-.impact-card:hover::before {
-  transform: scaleX(1);
-}
 
 .impact-icon {
   font-size: 2rem;
@@ -1505,11 +1498,7 @@
   flex-shrink: 0;
 }
 
-.impact-card:hover .impact-icon {
-  transform: scale(1.1) rotate(8deg);
-  background: var(--gradient-primary);
-  color: var(--white);
-}
+
 
 .impact-card h3 {
   margin-bottom: var(--spacing-sm);
@@ -2374,7 +2363,7 @@
 }
 
 .doctor-summary-price .price-amount::before {
-  content: '£';
+  content: '';
   font-size: var(--font-size-base);
   opacity: 0.8;
 }
@@ -2988,3 +2977,209 @@ html {
   white-space: nowrap !important;
   border: 0 !important;
 }
+/* =====================================================
+   ADHD CONTENT SECTION – PROFESSIONAL HEALTHCARE STYLE
+   Scoped: .adhd-content-section ONLY
+   ===================================================== */
+
+   .adhd-content-section {
+    padding: 80px 0;
+    background: var(#f5fbff);
+    color: #2c3e50;
+  }
+  
+  .adhd-content-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .adhd-content-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .adhd-content-section h3 {
+    font-size: 1.5rem;
+    margin: 40px 0 12px;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .adhd-content-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    color: #4a5a6a;
+  }
+  
+  /* ---------- Info Highlight Boxes ---------- */
+  .adhd-info-box {
+    background: var(--primary-blue-light, #e1f7fa);
+    border-left: 4px solid var(--primary-blue);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+  }
+  
+  .adhd-info-box i {
+    color: var(--primary-blue-dark);
+    margin-right: 6px;
+  }
+  
+  /* ---------- ADHD TYPES GRID ---------- */
+  .adhd-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+  }
+  
+  .adhd-type-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  
+  .adhd-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .adhd-type-icon {
+    font-size: 28px;
+    color: var(--primary-blue);
+    margin-bottom: 12px;
+  }
+  
+  .adhd-type-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+  
+  .adhd-type-card ul {
+    padding-left: 18px;
+    margin-top: 12px;
+  }
+  
+  .adhd-type-card li {
+    margin-bottom: 8px;
+    color: #566573;
+  }
+  
+  /* ---------- LIFE IMPACT GRID ---------- */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+  }
+  
+  .impact-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  }
+  
+  .impact-icon {
+    font-size: 30px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+  }
+  
+  /* ---------- TREATMENT PROCESS ---------- */
+  .treatment-process {
+    margin-top: 60px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06);
+  }
+  
+  .adhd-symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+  }
+  
+  .symptom-item {
+    background: var(--primary-blue-lighter, #f7fcff);
+    border-radius: 14px;
+    padding: 22px;
+    border: 1px solid var(--primary-blue-light, #e1f7fa);
+  }
+  
+  .symptom-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  
+  .symptom-header i {
+    color: #2ecc71;
+    font-size: 18px;
+  }
+  
+  /* ---------- BULLET LIST ---------- */
+  .adhd-content-section ul {
+    margin: 20px 0 30px;
+    padding-left: 22px;
+  }
+  
+  .adhd-content-section li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  
+  /* ---------- PROCESS STEPS ---------- */
+  .process-steps {
+    margin-top: 40px;
+    display: grid;
+    gap: 26px;
+  }
+  
+  .process-step {
+    display: flex;
+    gap: 20px;
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.05);
+  }
+  
+  .step-icon {
+    font-size: 28px;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+  }
+  
+  .step-content h4 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .adhd-content-section {
+      padding: 60px 0;
+    }
+  
+    .treatment-process {
+      padding: 26px;
+    }
+  
+    .process-step {
+      flex-direction: column;
+    }
+  }
+  
