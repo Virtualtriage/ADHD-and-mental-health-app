@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import './ADHDMentalHealth.css';
 
 function ADHDMentalHealth() {
@@ -7,6 +9,8 @@ function ADHDMentalHealth() {
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [availableDoctors, setAvailableDoctors] = useState([]);
+  const [isLoadingDoctors, setIsLoadingDoctors] = useState(true);
 
   // Handle body scroll locking when modal is open
   useEffect(() => {
@@ -31,106 +35,98 @@ function ADHDMentalHealth() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Available ADHD Specialists data
-  const availableDoctors = [
-    {
-      id: 1,
-      name: 'Dr. Eleanor Richardson',
-      specialization: 'ADHD Specialist & Adult Psychiatry',
-      location: 'London, United Kingdom',
-      experience: '18 years experience',
-      price: '£680',
-      isAvailable: true,
-      rating: 4.9,
-      reviewCount: 215,
-      languages: ['English', 'French'],
-      nextAvailable: 'Today, 3:30 PM'
-    },
-    {
-      id: 2,
-      name: 'Dr. James Wilson',
-      specialization: 'Child & Adolescent ADHD',
-      location: 'Manchester, United Kingdom',
-      experience: '15 years experience',
-      price: '£490',
-      isAvailable: true,
-      rating: 4.8,
-      reviewCount: 178,
-      languages: ['English'],
-      nextAvailable: 'Today, 4:00 PM'
-    },
-    {
-      id: 3,
-      name: 'Dr. Sarah Chen',
-      specialization: 'Adult ADHD Assessment',
-      location: 'Bristol, United Kingdom',
-      experience: '12 years experience',
-      price: '£300',
-      isAvailable: true,
-      rating: 4.9,
-      reviewCount: 142,
-      languages: ['English', 'Mandarin'],
-      nextAvailable: 'Today, 5:30 PM'
-    },
-    {
-      id: 4,
-      name: 'Dr. Michael O\'Brien',
-      specialization: 'ADHD & Co-occurring Conditions',
-      location: 'Edinburgh, United Kingdom',
-      experience: '20 years experience',
-      price: '£720',
-      isAvailable: false,
-      rating: 5.0,
-      reviewCount: 189,
-      languages: ['English', 'Gaelic'],
-      nextAvailable: 'Tomorrow, 9:00 AM'
-    },
-    {
-      id: 5,
-      name: 'Dr. Amina Patel',
-      specialization: 'Women\'s ADHD & Mental Health',
-      location: 'Birmingham, United Kingdom',
-      experience: '14 years experience',
-      price: '£580',
-      isAvailable: true,
-      rating: 4.7,
-      reviewCount: 165,
-      languages: ['English', 'Hindi', 'Gujarati'],
-      nextAvailable: 'Today, 6:00 PM'
-    },
-    {
-      id: 5,
-      name: 'Dr. Shaeel Javaid',
-      specialization: 'ADHD & Mental Health',
-      location: 'Birmingham, United Kingdom',
-      experience: '14 years experience',
-      price: '£400',
-      isAvailable: true,
-      rating: 4.7,
-      reviewCount: 165,
-      languages: ['English', 'Urdu'],
-      nextAvailable: 'Today, 6:00 PM'
-    }
-  ];
+  // Fetch doctors from APIs on component mount
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      setIsLoadingDoctors(true);
+      try {
+        // Fetch from both APIs
+        const [psychiatryResponse, psychiatristResponse] = await Promise.all([
+          fetch('https://directoryapi.virtualtriage.ai/doctors/specialities/?speciality=psychiatry'),
+          fetch('https://directoryapi.virtualtriage.ai/doctors/specialities/?speciality=Psychiatrist')
+        ]);
 
-  // Metrics data
-  const metrics = [
-    {
-      icon: 'fas fa-brain',
-      value: '96%',
-      label: 'Accuracy Rate'
-    },
-    {
-      icon: 'fas fa-stopwatch',
-      value: '2-3 weeks',
-      label: 'Assessment Time'
-    },
-    {
-      icon: 'fas fa-star',
-      value: '4.8 ★',
-      label: 'Patient Rating'
-    }
-  ];
+        const psychiatryData = await psychiatryResponse.json();
+        const psychiatristData = await psychiatristResponse.json();
+
+        // Combine doctors from both APIs
+        const allDoctors = [
+          ...(psychiatryData.data?.data || []),
+          ...(psychiatristData.data?.data || [])
+        ];
+
+        // Remove duplicates based on _id
+        const uniqueDoctors = Array.from(
+          new Map(allDoctors.map(doctor => [doctor._id, doctor])).values()
+        );
+
+        // Transform API data to match component structure
+        const transformedDoctors = uniqueDoctors
+          .filter(doctor => doctor.status !== false && doctor.verified !== false) // Only show verified and active doctors
+          .map((doctor, index) => {
+            // Get location string
+            const location = doctor.locations && doctor.locations.length > 0
+              ? `${doctor.locations[0].city ? doctor.locations[0].city + ', ' : ''}${doctor.locations[0].country || 'United Kingdom'}`
+              : 'United Kingdom';
+
+            const speciality = Array.isArray(doctor.speciality) && doctor.speciality.length > 0
+              ? doctor.speciality.join(', ')
+              : doctor.speciality || 'General Practitioner';
+
+            // Get specialization from subspecialties or speciality
+            const specialization = Array.isArray(doctor.subspecialties) && doctor.subspecialties.length > 0
+              ? doctor.subspecialties.join(', ')
+              : doctor.speciality || 'Psychiatrist';
+
+            // Format experience
+            const experience = doctor.experience_years
+              ? `${doctor.experience_years} ${typeof doctor.experience_years === 'number' ? 'years' : ''} experience`
+              : 'Experienced';
+
+            // Format price
+            const price = doctor.new_appointment_fee
+              ? `£${doctor.new_appointment_fee}`
+              : '£500';
+
+            // Get languages
+            const languages = Array.isArray(doctor.languages_spoken) && doctor.languages_spoken.length > 0
+              ? doctor.languages_spoken
+              : ['English'];
+
+            // Extract rating from rating object
+            const rating = doctor.rating || {};
+
+            return {
+              id: doctor._id || index,
+              name: doctor.full_name || 'Dr. Unknown',
+              specialization: specialization,
+              speciality: speciality,
+              location: location,
+              experience: experience,
+              price: price,
+              isAvailable: doctor.status === true,
+              rating: rating['Doctor_Rating'],
+              languages: languages,
+              nextAvailable: 'Available Soon',
+              profilePicture: doctor.profile_picture_url,
+              about: doctor.about,
+              profileUrl: doctor.profile_url,
+              username: doctor.username
+            };
+          });
+
+        setAvailableDoctors(transformedDoctors);
+      } catch (error) {
+        console.error('Error fetching doctors:', error);
+        // Fallback to empty array or show error message
+        setAvailableDoctors([]);
+      } finally {
+        setIsLoadingDoctors(false);
+      }
+    };
+
+    fetchDoctors();
+  }, []);
 
   // How It Works steps data - ADHD Focused
   const howItWorksSteps = [
@@ -422,11 +418,16 @@ function ADHDMentalHealth() {
   };
 
   const handleViewProfile = (doctor) => {
-    alert(`Viewing profile of ${doctor.name}\n\nSpecialization: ${doctor.specialization}\nExperience: ${doctor.experience}\nLocation: ${doctor.location}\nRating: ${doctor.rating} ★ (${doctor.reviewCount} reviews)\n\nAssessment Fee: ${doctor.price} (includes comprehensive assessment and report)`);
+    if (doctor.profileUrl) {
+      window.open(doctor.profileUrl, '_blank');
+    } else {
+      alert(`Viewing profile of ${doctor.name}\n\nSpecialization: ${doctor.specialization}\nSpeciality: ${doctor.speciality}\nExperience: ${doctor.experience}\nLocation: ${doctor.location}\nRating: ${doctor.rating} ★ (${doctor.reviewCount} reviews)\n\nAssessment Fee: ${doctor.price} (includes comprehensive assessment and report)`);
+    }
   };
 
   return (
     <div className="adhd-mental-health-app">
+      <Navbar />
       {/* Hero Section */}
       <section className="adhd-hero">
         <div className="container">
@@ -474,6 +475,16 @@ function ADHDMentalHealth() {
           
           <div className="doctors-content">
             <div className="doctors-main">
+              {isLoadingDoctors ? (
+                <div style={{ textAlign: 'center', padding: '40px' }}>
+                  <i className="fas fa-spinner fa-spin" style={{ fontSize: '2rem', color: '#15c0da', marginBottom: '20px' }}></i>
+                  <p>Loading doctors...</p>
+                </div>
+              ) : availableDoctors.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '40px' }}>
+                  <p>No doctors available at the moment. Please check back later.</p>
+                </div>
+              ) : (
               <div className="doctors-grid">
                 {availableDoctors.map((doctor) => (
                   <div key={doctor.id} className="doctor-card">
@@ -494,9 +505,17 @@ function ADHDMentalHealth() {
                         <span className="review-count">({doctor.reviewCount} reviews)</span>
                       </div>
                     </div>
+                    <div className="doctor-image-container">
+
+                    {doctor.profilePicture && (
+                      <div className="doctor-image">
+                        <img src={doctor.profilePicture} alt={doctor.name} onError={(e) => { e.target.style.display = 'none'; }} />
+                      </div>
+                    )}
                     
                     <div className="doctor-info">
                       <h3>{doctor.name}</h3>
+                      <div className="doctor-speciality">{doctor.speciality}</div>
                       <div className="doctor-specialization">{doctor.specialization}</div>
                       <div className="doctor-location">
                         <i className="fas fa-map-marker-alt"></i> {doctor.location}
@@ -509,6 +528,7 @@ function ADHDMentalHealth() {
                         <i className="fas fa-language"></i>
                         <span>{doctor.languages.join(', ')}</span>
                       </div>
+                    </div>
                     </div>
                     
                     <div className="doctor-pricing">
@@ -534,37 +554,7 @@ function ADHDMentalHealth() {
                   </div>
                 ))}
               </div>
-            </div>
-            
-            <div className="doctors-sidebar">
-              <div className="sidebar-card specialties-card">
-                <h3>
-                  <i className="fas fa-stethoscope" style={{marginRight: '8px', color: '#15c0da'}}></i>
-                  Comprehensive ADHD Services
-                </h3>
-                <p>Adult ADHD assessment, child & adolescent ADHD, co-occurring conditions, and ongoing treatment management.</p>
-                <button className="btn btn-secondary">
-                  <i className="fas fa-info-circle"></i> Learn More
-                </button>
-              </div>
-              
-              <div className="sidebar-card metrics-card">
-                <h3>
-                  <i className="fas fa-chart-line" style={{marginRight: '8px', color: '#15c0da'}}></i>
-                  Our ADHD Service Metrics
-                </h3>
-                <div className="metrics-grid">
-                  {metrics.map((metric, index) => (
-                    <div key={index} className="metric-item">
-                      <div className="metric-icon">
-                        <i className={metric.icon}></i>
-                      </div>
-                      <div className="metric-value">{metric.value}</div>
-                      <div className="metric-label">{metric.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -584,7 +574,6 @@ function ADHDMentalHealth() {
             {howItWorksSteps.map((step) => (
               <div key={step.step} className="step-card">
                 <div className="step-header">
-                  <div className="step-number">{step.step}</div>
                   <div className="step-icon">
                     <i className={step.icon}></i>
                   </div>
@@ -883,11 +872,11 @@ function ADHDMentalHealth() {
                 <div className="modal-doctor-summary">
                   <div className="doctor-summary-info">
                     <h4>{selectedDoctor.name}</h4>
-                    <p>{selectedDoctor.specialization}</p>
+                    <p>{selectedDoctor.speciality}</p>
                     <div className="doctor-summary-details">
                       <span><i className="fas fa-map-marker-alt"></i> {selectedDoctor.location}</span>
                       <span><i className="fas fa-briefcase-medical"></i> {selectedDoctor.experience}</span>
-                      <span><i className="fas fa-star"></i> {selectedDoctor.rating} ★</span>
+                      <span><i className="fas fa-star"></i> {selectedDoctor.rating} ★ ({selectedDoctor.reviewCount} reviews)</span>
                     </div>
                   </div>
                   <div className="doctor-summary-price">
@@ -1007,6 +996,7 @@ function ADHDMentalHealth() {
           </div>
         </div>
       )}
+    <Footer />
     </div>
   );
 }

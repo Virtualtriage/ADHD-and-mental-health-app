@@ -1,0 +1,414 @@
+/* Navbar Styles */
+.nav {
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: fixed;
+  z-index: 1001;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(0, 163, 187, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-desktop-row {
+  display: flex;
+  padding: 0 50px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.Nav-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.Nav-logo img {
+  height: auto;
+  max-height: 60px;
+  width: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+}
+
+.nav-button {
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  color: #0f2234;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.nav-button:hover {
+  color: #00a3bb;
+}
+
+/* Dropdown Menu */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown .nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-dropdown .nav-button svg {
+  font-size: 12px;
+  color: #0f2234;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .nav-button svg {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 8px 0;
+  min-width: 190px;
+  z-index: 20;
+  margin-top: 0px;
+}
+
+.nav-dropdown-menu a {
+  text-decoration: none;
+  display: block;
+}
+
+.nav-dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  color: #0f2234;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-dropdown-item:hover {
+  background-color: #f0f9ff;
+  color: #00a3bb;
+}
+
+/* Find Doctors Button */
+.find-practitioner-nav-btn {
+  border: 1px solid #00a3bb;
+  background-color: #ffffff;
+  color: #0f2234;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.find-practitioner-nav-btn:hover {
+  background-color: #f0f9ff;
+  border-color: #50cada;
+  color: #00a3bb;
+}
+
+/* Login Button */
+.button-button-login {
+  background-color: #00a3bb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.button-button-login:hover {
+  background-color: #50cada;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 163, 187, 0.3);
+}
+
+.button-button-login::after {
+  content: "→";
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+/* Hamburger Menu (Mobile) */
+.navbar-hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  width: 30px;
+  z-index: 1001;
+}
+
+.navbar-hamburger .line {
+  height: 3px;
+  background-color: #00a3bb;
+  width: 100%;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-hamburger:hover .line {
+  background-color: #50cada;
+}
+
+/* Side Panel (Mobile Menu) */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.side-panel.open {
+  right: 0;
+}
+
+.side-panel .nav-links {
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  width: 100%;
+  padding: 80px 20px 20px;
+  box-sizing: border-box;
+}
+
+.side-panel .nav-button,
+.side-panel .find-practitioner-nav-btn,
+.side-panel .button-button-login {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  margin-bottom: 0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.side-panel .nav-button:hover,
+.side-panel .find-practitioner-nav-btn:hover {
+  background-color: #f0f9ff;
+}
+
+.side-panel .button-button-login:hover {
+  background-color: #50cada;
+}
+
+.side-panel .nav-dropdown {
+  width: 100%;
+}
+
+.side-panel .nav-dropdown .nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.side-panel .nav-dropdown-menu {
+  position: static;
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  background-color: #f9fafb;
+}
+
+.side-panel .nav-dropdown-item {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 4px 8px;
+}
+
+.side-panel .nav-dropdown-item:hover {
+  background-color: #e0f2fe;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .find-practitioner-nav-btn,
+  .button-button-login {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-desktop-row .nav-links {
+    display: none !important;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+    margin-right: 30px;
+  }
+
+  .nav-desktop-row {
+    padding: 5px;
+  }
+
+  .Nav-logo img {
+    max-height: 50px;
+  }
+
+  .side-panel {
+    width: 320px;
+    max-width: 85%;
+  }
+
+  .side-panel.open {
+    width: 320px;
+    max-width: 85%;
+  }
+
+  .side-panel .nav-links {
+    display: flex !important;
+    padding: 70px 16px 20px;
+  }
+}
+
+@media (min-width: 901px) {
+  .side-panel {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 12px 5px;
+    height: 8vh;
+  }
+
+  .Nav-logo img {
+    max-height: 40px;
+  }
+
+  .navbar-hamburger {
+    margin-right: 15px;
+  }
+
+  .side-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .side-panel.open {
+    width: 80%;
+    max-width: 100%;
+  }
+
+  .side-panel .nav-links {
+    padding: 65px 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .side-panel .nav-button,
+  .side-panel .find-practitioner-nav-btn,
+  .side-panel .button-button-login {
+    padding: 14px 16px;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .side-panel .nav-dropdown-item {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .side-panel .nav-links {
+    padding: 60px 12px 20px;
+  }
+
+  .side-panel .nav-button,
+  .side-panel .find-practitioner-nav-btn,
+  .side-panel .button-button-login {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .side-panel .nav-dropdown-item {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
