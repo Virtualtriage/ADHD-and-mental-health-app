@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import DirectBookingModal from '../component/DirectBookingModal';
+import LoginModal from '../component/LoginModal';
 import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
 import '../styles/ADHDMentalHealth.css';
@@ -12,6 +13,8 @@ function ADHDMentalHealth() {
   const [isLoadingDoctors, setIsLoadingDoctors] = useState(true);
   const [isDirectBookingModalOpen, setIsDirectBookingModalOpen] = useState(false);
   const [selectedDoctorForBooking, setSelectedDoctorForBooking] = useState(null);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [pendingDoctorForBooking, setPendingDoctorForBooking] = useState(null);
 
   // Fetch doctors from APIs on component mount
   useEffect(() => {
@@ -312,6 +315,36 @@ function ADHDMentalHealth() {
     }
   };
 
+  // Check if user is authenticated
+  const isAuthenticated = () => {
+    const authToken = localStorage.getItem('authToken');
+    return !!authToken;
+  };
+
+  // Handle Book Now button click
+  const handleBookNow = (doctor) => {
+    if (isAuthenticated()) {
+      // User is logged in, open booking modal
+      setSelectedDoctorForBooking(doctor);
+      setIsDirectBookingModalOpen(true);
+    } else {
+      // User is not logged in, open login modal and store doctor for later
+      setPendingDoctorForBooking(doctor);
+      setIsLoginModalOpen(true);
+    }
+  };
+
+  // Handle successful login
+  const handleLoginSuccess = () => {
+    setIsLoginModalOpen(false);
+    // If there's a pending doctor, open booking modal
+    if (pendingDoctorForBooking) {
+      setSelectedDoctorForBooking(pendingDoctorForBooking);
+      setIsDirectBookingModalOpen(true);
+      setPendingDoctorForBooking(null);
+    }
+  };
+
   
 
   return (
@@ -428,10 +461,7 @@ function ADHDMentalHealth() {
                       <div className="doctor-actions">
                         <button
                           className="btn btn-primary"
-                          onClick={() => {
-                            setSelectedDoctorForBooking(doctor);
-                            setIsDirectBookingModalOpen(true);
-                          }}
+                          onClick={() => handleBookNow(doctor)}
                         >
                           <i className="fas fa-calendar-check"></i> Book Now!
                         </button>
@@ -639,6 +669,16 @@ function ADHDMentalHealth() {
           </div>
         </div>
       </section>
+
+      {/* Login Modal */}
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => {
+          setIsLoginModalOpen(false);
+          setPendingDoctorForBooking(null);
+        }}
+        onLoginSuccess={handleLoginSuccess}
+      />
 
       {/* Direct Booking Modal */}
       <DirectBookingModal
