@@ -1,14 +1,17 @@
 
 import { useState, useEffect } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import './ADHDMentalHealth.css';
+import DirectBookingModal from '../component/DirectBookingModal';
+import Navbar from '../component/Navbar';
+import Footer from '../component/Footer';
+import '../styles/ADHDMentalHealth.css';
 
 function ADHDMentalHealth() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [availableDoctors, setAvailableDoctors] = useState([]);
   const [isLoadingDoctors, setIsLoadingDoctors] = useState(true);
+  const [isDirectBookingModalOpen, setIsDirectBookingModalOpen] = useState(false);
+  const [selectedDoctorForBooking, setSelectedDoctorForBooking] = useState(null);
 
   // Fetch doctors from APIs on component mount
   useEffect(() => {
@@ -294,6 +297,7 @@ function ADHDMentalHealth() {
       details: 'Comprehensive approach to wellbeing.'
     }
   ];
+  
 
   // Event handlers
   const toggleFaq = (index) => {
@@ -307,6 +311,8 @@ function ADHDMentalHealth() {
       alert(`Viewing profile of ${doctor.name}\n\nSpecialization: ${doctor.specialization}\nSpeciality: ${doctor.speciality}\nExperience: ${doctor.experience}\nLocation: ${doctor.location}\n\nAssessment Fee: ${doctor.price} (includes comprehensive assessment and report)`);
     }
   };
+
+  
 
   return (
     <div className="adhd-mental-health-app">
@@ -422,8 +428,12 @@ function ADHDMentalHealth() {
                       <div className="doctor-actions">
                         <button
                           className="btn btn-primary"
+                          onClick={() => {
+                            setSelectedDoctorForBooking(doctor);
+                            setIsDirectBookingModalOpen(true);
+                          }}
                         >
-                          <i className="fas fa-calendar-check"></i> Book Assessment
+                          <i className="fas fa-calendar-check"></i> Book Now!
                         </button>
                         <button
                           className="btn btn-secondary"
@@ -629,6 +639,17 @@ function ADHDMentalHealth() {
           </div>
         </div>
       </section>
+
+      {/* Direct Booking Modal */}
+      <DirectBookingModal
+        isOpen={isDirectBookingModalOpen}
+        onClose={() => {
+          setIsDirectBookingModalOpen(false);
+          setSelectedDoctorForBooking(null);
+        }}
+        doctor={selectedDoctorForBooking}
+      />
+
       <Footer />
     </div>
   );
