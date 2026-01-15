@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vt-adhd-frontend
+  namespace: data-services
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vt-adhd-frontend
+  template:
+    metadata:
+      labels:
+        app: vt-adhd-frontend
+    spec:
+      imagePullSecrets:
+        - name: virtualtraige   # 👈 THIS IS THE FIX
+      containers:
+        - name: frontend
+          image: registry.digitalocean.com/virtualtraige/vt-adhd-frontend:1.0
+          ports:
+            - containerPort: 80

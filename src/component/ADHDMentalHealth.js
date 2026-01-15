@@ -68,9 +68,6 @@ function ADHDMentalHealth() {
               ? doctor.languages_spoken
               : ['English'];
 
-            // Extract rating from rating object
-            const rating = doctor.rating["Doctor_Rating"] || '0' ;
-
             return {
               id: doctor._id || index,
               name: doctor.full_name || 'Dr. Unknown',
@@ -80,7 +77,6 @@ function ADHDMentalHealth() {
               experience: experience,
               price: price,
               isAvailable: doctor.status === true,
-              rating: rating,
               languages: languages,
               nextAvailable: 'Available Soon',
               profilePicture: doctor.profile_picture_url,
@@ -308,7 +304,7 @@ function ADHDMentalHealth() {
     if (doctor.profileUrl) {
       window.open(doctor.profileUrl, '_blank');
     } else {
-      alert(`Viewing profile of ${doctor.name}\n\nSpecialization: ${doctor.specialization}\nSpeciality: ${doctor.speciality}\nExperience: ${doctor.experience}\nLocation: ${doctor.location}\nRating: ${doctor.rating} ★ (${doctor.reviewCount} reviews)\n\nAssessment Fee: ${doctor.price} (includes comprehensive assessment and report)`);
+      alert(`Viewing profile of ${doctor.name}\n\nSpecialization: ${doctor.specialization}\nSpeciality: ${doctor.speciality}\nExperience: ${doctor.experience}\nLocation: ${doctor.location}\n\nAssessment Fee: ${doctor.price} (includes comprehensive assessment and report)`);
     }
   };
 
@@ -329,7 +325,11 @@ function ADHDMentalHealth() {
             <p className="hero-subtitle">
               Connect with independent, UK-registered clinicians for private ADHD assessments via secure video consultations. Assessments are conducted by qualified professionals in line with recognised clinical standards. Appointments are available online, allowing individuals and families across the UK to access specialist consultations without long NHS waiting lists.
             </p>
-            <button className="btn btn-large">
+            <button className="btn btn-large" onClick={() =>
+              document.getElementById("doctors-here")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }>
               <i className="fas fa-clipboard-check"></i> Book an ADHD Consultation
             </button>
             <div className="trust-badges">
@@ -351,7 +351,7 @@ function ADHDMentalHealth() {
       </section>
 
       {/* Available ADHD Specialists Section */}
-      <section className="section available-doctors-section">
+      <section className="section available-doctors-section" id='doctors-here'>
         <div className="container">
           <div className="doctors-header">
             <h2 className="section-title">
@@ -386,10 +386,6 @@ function ADHDMentalHealth() {
                               <i className="fas fa-clock"></i> Next: {doctor.nextAvailable}
                             </span>
                           )}
-                        </div>
-                        <div className="doctor-rating">
-                          <i className="fas fa-star"></i> {doctor.rating}
-                          <span className="review-count">({doctor.reviewCount} reviews)</span>
                         </div>
                       </div>
                       <div className="doctor-image-container">
@@ -562,17 +558,19 @@ function ADHDMentalHealth() {
                 </div>
               </div>
 
-              <h3> When to Seek an ADHD Assessment</h3>
-              <p>Consider seeking an ADHD assessment if you experience persistent difficulties with:</p>
+              <div className="when-to-seek-assessment">
+                <h3> When to Seek an ADHD Assessment</h3>
+                <p>Consider seeking an ADHD assessment if you experience persistent difficulties with:</p>
 
-              <ul>
-                <li><strong>Focus and attention:</strong> Difficulty concentrating on tasks, easily distracted, making careless mistakes</li>
-                <li><strong>Organization:</strong> Chronic disorganization, poor time management, frequently losing things</li>
-                <li><strong>Impulse control:</strong> Speaking without thinking, impulsive decisions, difficulty waiting turns</li>
-                <li><strong>Emotional regulation:</strong> Quick temper, mood swings, low frustration tolerance</li>
-                <li><strong>Task completion:</strong> Starting projects but not finishing them, procrastination</li>
-                <li><strong>Working memory:</strong> Forgetfulness, difficulty following multi-step instructions</li>
-              </ul>
+                <ul>
+                  <li><strong>Focus and attention:</strong> Difficulty concentrating on tasks, easily distracted, making careless mistakes</li>
+                  <li><strong>Organization:</strong> Chronic disorganization, poor time management, frequently losing things</li>
+                  <li><strong>Impulse control:</strong> Speaking without thinking, impulsive decisions, difficulty waiting turns</li>
+                  <li><strong>Emotional regulation:</strong> Quick temper, mood swings, low frustration tolerance</li>
+                  <li><strong>Task completion:</strong> Starting projects but not finishing them, procrastination</li>
+                  <li><strong>Working memory:</strong> Forgetfulness, difficulty following multi-step instructions</li>
+                </ul>
+              </div>
 
               <div className="adhd-info-box">
                 <p><i className="fas fa-exclamation-triangle"></i> Many adults develop coping strategies that can mask underlying difficulties. If you have concerns about ADHD, a professional assessment may help provide clarity and support informed decision-making.</p>
@@ -582,7 +580,10 @@ function ADHDMentalHealth() {
               <div className="cta-box">
                 <h3><i className="fas fa-brain"></i>Ready to Explore Your ADHD Concerns?</h3>
                 <p>Connect with independent, UK-registered clinicians to discuss your concerns and explore appropriate next steps.</p>
-                <button className="btn-large">
+                <button className="btn-large" onClick={() =>
+              document.getElementById("doctors-here")?.scrollIntoView({
+                behavior: "smooth",
+              })}>
                   <i className="fas fa-calendar-check"></i> Book a Consultation
                 </button>
               </div>

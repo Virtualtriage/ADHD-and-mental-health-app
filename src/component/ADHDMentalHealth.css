@@ -1,7 +1,7 @@
 /* Optimized CSS - Performance Focused */
 :root {
-  --primary-blue: #15c0da;
-  --primary-blue-dark: #0fa8c0;
+  --primary-blue: #00a3bb;
+  --primary-blue-dark: #0890a5;
   --primary-blue-light: #e1f7fa;
   --white: #ffffff;
   --off-white: #f8fafc;
@@ -33,7 +33,7 @@
 /* Hero Section */
 .adhd-hero {
   background: var(--primary-blue-light);
-  padding: 11vh 0 2vh 0;
+  padding: 13vh 0 2vh 0;
   text-align: center;
   border-bottom: 1px solid var(--border-light);
 }
@@ -123,6 +123,16 @@
   padding: 16px 32px;
   border-radius: 12px;
   min-width: 280px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-large:hover {
+  background: var(--primary-blue-dark);
+  color: var(--white);
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .btn:disabled {
@@ -161,7 +171,7 @@
 
 /* Sections */
 .section {
-  padding: 48px 0;
+  padding: 5px 0;
 }
 
 .section-title {
@@ -182,7 +192,7 @@
 /* Available Doctors Section */
 .available-doctors-section {
   background: var(--off-white);
-  padding: 48px 0;
+  padding: 30px 0;
 }
 
 .doctors-header {
@@ -295,7 +305,8 @@
 .doctor-specialization {
   font-size: 14px;
   color: var(--medium-text);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #50cada;
 }
 
 .doctor-location,
@@ -307,6 +318,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.doctor-languages span {
+  text-align: left;
 }
 
 .doctor-pricing {
@@ -443,7 +458,7 @@
 /* Content Section */
 .adhd-content-section {
   background: var(--white);
-  padding: 48px 0;
+  padding: 30px 0;
 }
 
 .content-wrapper {
@@ -635,59 +650,14 @@
   margin-bottom: 24px;
 }
 
-/* Testimonials */
-.testimonials-section {
-  background: var(--off-white);
+.when-to-seek-assessment {
+  border: 1px solid #e2e8f0;
+  padding: 0 0 10px 40px;
+  border-radius: 15px;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-
-.testimonial-card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 24px;
-  border: 1px solid var(--border-light);
-}
-
-.testimonial-content p {
-  font-size: 14px;
-  color: var(--medium-text);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.author-avatar {
-  width: 50px;
-  height: 50px;
-  background: var(--primary-blue);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-}
-
-.author-info h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.author-info p {
-  font-size: 12px;
-  color: var(--light-text);
-  margin: 0;
+.when-to-seek-assessment h3 {
+  color: #00a3bb;
 }
 
 /* FAQ */
@@ -742,7 +712,7 @@
 /* Ready to Book */
 .ready-to-book-section {
   background: var(--primary-blue-light);
-  padding: 48px 0;
+  padding: 30px 0;
   text-align: center;
 }
 
