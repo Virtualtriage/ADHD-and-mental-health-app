@@ -1,0 +1,78 @@
+/* TEAM */
+
+Platform Name: Virtual Triage ADHD Portal
+
+Parent Platform:
+Virtual Triage
+
+Website:
+https://adhd.virtualtriage.ai
+
+Primary Platform:
+https://virtualtriage.ai
+
+Industry:
+Digital Health
+Telemedicine
+Mental Health Services
+
+Mission:
+Virtual Triage aims to improve access to mental healthcare by helping
+patients discover and connect with licensed mental health professionals
+through secure virtual consultations.
+
+The ADHD Portal focuses specifically on connecting patients seeking
+support for Attention Deficit Hyperactivity Disorder (ADHD) with
+qualified specialists including psychiatrists, psychologists,
+therapists, and neurodevelopmental disorder experts.
+
+Platform Capabilities:
+
+• ADHD specialist directory
+• online ADHD consultations
+• telehealth mental health services
+• practitioner discovery and comparison
+• appointment booking system
+• AI-assisted patient triage support
+
+Target Users:
+
+Adults seeking ADHD diagnosis  
+Parents seeking ADHD assessment for children  
+Individuals exploring ADHD therapy options  
+Patients looking for online psychiatric consultations
+
+Healthcare Professional Types Listed:
+
+Psychiatrists  
+Clinical Psychologists  
+ADHD Specialists  
+Mental Health Therapists  
+Behavioral Therapy Practitioners
+
+Platform Role:
+
+Virtual Triage operates as a healthcare discovery and appointment
+booking platform connecting patients with independent practitioners.
+
+The platform does not provide medical diagnosis, treatment,
+or prescriptions directly.
+
+All consultations and medical decisions are performed solely
+by licensed healthcare professionals.
+
+Technology Stack:
+
+Frontend: React  
+Backend APIs: FastAPI / Django  
+Telehealth infrastructure: secure video consultation systems  
+AI systems: patient triage assistant and symptom guidance tools
+
+Platform Vision:
+
+To make mental healthcare more accessible globally by enabling
+patients to easily discover qualified practitioners and
+receive consultations through secure digital platforms.
+
+Contact Website:
+https://virtualtriage.ai

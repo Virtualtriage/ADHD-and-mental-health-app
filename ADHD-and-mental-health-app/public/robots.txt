@@ -1,3 +1,63 @@
-# https://www.robotstxt.org/robotstxt.html
+# Virtual Triage ADHD Portal
+# robots.txt
+# https://adhd.virtualtriage.ai
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Crawl delay to prevent aggressive crawling
+Crawl-delay: 2
+
+# Block backend and sensitive paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /payment/
+Disallow: /private/
+Disallow: /auth/
+Disallow: /dashboard/
+
+# Allow important pages
+Allow: /
+Allow: /find-adhd-specialist
+Allow: /book-consultation
+Allow: /online-adhd-doctor
+Allow: /adhd-diagnosis-online
+
+# Sitemap location
+Sitemap: https://adhd.virtualtriage.ai/sitemap.xml
+
+
+# ---------------------------------------------------
+# AI Crawlers (important for GEO and AI visibility)
+# ---------------------------------------------------
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /

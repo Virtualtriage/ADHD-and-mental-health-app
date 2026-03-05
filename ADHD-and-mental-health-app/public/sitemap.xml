@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<!-- Main Landing Page -->
+<url>
+<loc>https://adhd.virtualtriage.ai/</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+
+<!-- ADHD Specialist Directory -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<!-- Book Consultation -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<!-- Online ADHD Doctor -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.85</priority>
+</url>
+
+<!-- ADHD Diagnosis -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.85</priority>
+</url>
+
+<!-- ADHD Psychiatrist -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<!-- ADHD Therapy -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<!-- Adult ADHD Assessment -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<!-- ADHD Symptoms Guide -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+
+<!-- Mental Health Specialist Directory -->
+<url>
+<loc>https://virtualtriage.ai/find-practitioners</loc>
+<lastmod>2026-03-06</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+
+</urlset>
