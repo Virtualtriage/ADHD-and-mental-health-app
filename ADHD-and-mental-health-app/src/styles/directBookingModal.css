@@ -1,0 +1,401 @@
+/* Modal Direct Booking Styles */
+.modal-direct-booking-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-direct-booking-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: fit-content;
+  width: 100%;
+  max-height: 85vh;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 80px 0 0 0;
+}
+
+.modal-direct-booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 24px 18px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  background: linear-gradient(135deg, #f8fbfc 0%, #ffffff 100%);
+}
+
+.modal-direct-booking-title-section {
+  flex: 1;
+}
+
+.modal-direct-booking-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a3c4f;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.3px;
+  text-align: left;
+}
+
+.modal-direct-booking-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+  justify-self: left;
+}
+
+.modal-direct-booking-close-button {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-direct-booking-close-button:hover {
+  background: #f8f9fa;
+  color: #333;
+  transform: scale(1.05);
+}
+
+.modal-direct-booking-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.modal-direct-booking-step {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal-direct-booking-step-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.modal-direct-booking-step-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a3c4f;
+  margin: 0 0 6px 0;
+}
+
+.modal-direct-booking-step-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.modal-direct-booking-type-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.modal-direct-booking-type-card {
+  background: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 18px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-direct-booking-type-card:hover {
+  border-color: #50cada;
+  box-shadow: 0 8px 25px rgba(80, 202, 218, 0.15);
+  transform: translateY(-2px);
+}
+
+.modal-direct-booking-type-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.modal-direct-booking-type-card-header h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a3c4f;
+  margin: 0;
+}
+
+.modal-direct-booking-type-price {
+  background: linear-gradient(135deg, #50cada 0%, #22c1d6 100%);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.modal-direct-booking-type-description {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0 0 16px 0;
+}
+
+.modal-direct-booking-type-select-btn {
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #666;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-direct-booking-type-select-btn:hover {
+  border-color: #50cada;
+  color: #50cada;
+}
+
+.modal-direct-booking-type-select-btn.selected {
+  background: #50cada;
+  border-color: #50cada;
+  color: #ffffff;
+}
+
+.modal-direct-booking-date-time-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: fit-content !important;
+}
+
+.modal-direct-booking-alert-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 12px;
+  color: #c53030;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.modal-direct-booking-step-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #e9ecef;
+}
+
+.modal-direct-booking-back-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: transparent;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  color: #666;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-direct-booking-back-button:hover {
+  border-color: #50cada;
+  color: #50cada;
+}
+
+.modal-direct-booking-next-button,
+.modal-direct-booking-proceed-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #50cada 0%, #22c1d6 100%);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(80, 202, 218, 0.3);
+}
+
+.modal-direct-booking-next-button:hover,
+.modal-direct-booking-proceed-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(80, 202, 218, 0.4);
+}
+
+.modal-direct-booking-proceed-button:disabled {
+  background: #e9ecef;
+  color: #adb5bd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) and (min-width: 769px) {
+  .modal-direct-booking-modal {
+    max-width: 580px;
+    max-height: 80vh;
+  }
+
+  .modal-direct-booking-header {
+    padding: 20px 20px 16px 20px;
+  }
+
+  .modal-direct-booking-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-direct-booking-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+    border-radius: 16px;
+  }
+
+  .modal-direct-booking-header {
+    padding: 24px 20px 16px 20px;
+  }
+
+  .modal-direct-booking-title {
+    font-size: 1.4rem;
+  }
+
+  .modal-direct-booking-content {
+    padding: 20px;
+  }
+
+  .modal-direct-booking-type-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .modal-direct-booking-step-navigation {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modal-direct-booking-back-button,
+  .modal-direct-booking-next-button,
+  .modal-direct-booking-proceed-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Form Group Styles */
+.modal-direct-booking-date-time-selection .form-group {
+  margin-bottom: 24px;
+}
+
+.modal-direct-booking-date-time-selection .form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a3c4f;
+  margin-bottom: 8px;
+}
+
+.modal-direct-booking-date-time-selection .form-group input[type="date"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e7ed;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #1a3c4f;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.modal-direct-booking-date-time-selection .form-group input[type="date"]:focus {
+  outline: none;
+  border-color: #15c0da;
+  box-shadow: 0 0 0 3px rgba(21, 192, 218, 0.1);
+}
+
+/* Time Slots Grid */
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.time-slot-btn {
+  padding: 12px 16px;
+  border: 2px solid #e0e7ed;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1a3c4f;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-slot-btn:hover:not(.disabled) {
+  border-color: #15c0da;
+  background: #f0fcfd;
+  color: #15c0da;
+}
+
+.time-slot-btn.selected {
+  background: #15c0da;
+  color: #ffffff;
+  border-color: #15c0da;
+}
+
+.time-slot-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .time-slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .time-slot-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,747 @@
+/* Footer Styles - Professional Redesign */
+.footer-contact {
+  background: linear-gradient(180deg, #0f2234 0%, #0a1825 100%);
+  color: #ffffff;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.footer-contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 35px 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Section */
+.footer-top-section {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 80px;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0;
+}
+
+/* Left Column - Brand Section */
+.footer-left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-section {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.footer-brand-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.footer-brand-description {
+  margin: 0 0 32px 0;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  font-size: 15px;
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Contact Details */
+.footer-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.6;
+  transition: color 0.3s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+.footer-contact-item:hover {
+  color: #50cada;
+  transform: translateX(4px);
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.footer-contact-item:hover svg {
+  color: #50cada;
+}
+
+/* Social Section */
+.footer-social-section {
+  margin-top: 0;
+}
+
+.footer-social-title {
+  margin: 0 0 16px 0;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-social-icons a:hover {
+  background: rgba(80, 202, 218, 0.15);
+  border-color: #50cada;
+  color: #50cada;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(80, 202, 218, 0.2);
+}
+
+.footer-social-icons svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Right Column */
+.footer-right-column {
+}
+
+/* Footer Links Container */
+.footer-links-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  width: 100%;
+}
+
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-link-title {
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link-list li {
+  margin: 0;
+}
+
+.footer-link-list li a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.6;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link-list li a:hover {
+  color: #50cada;
+  padding-left: 4px;
+}
+
+.platform-status-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: not-allowed;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  opacity: 0.6;
+}
+
+/* Newsletter Section */
+.contact-form-section {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 0;
+}
+
+.newsletter-title {
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+.newsletter-description {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form .input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 15px;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-form .input-wrapper:focus-within {
+  border-color: #50cada;
+  box-shadow: 0 0 0 3px rgba(80, 202, 218, 0.1);
+}
+
+.contact-form .input-wrapper svg {
+  color: #6b7280;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  transition: color 0.3s ease;
+}
+
+.contact-form .input-wrapper:focus-within svg {
+  color: #50cada;
+}
+
+.contact-form .input-wrapper input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #0f2234;
+  font-size: 14px;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.contact-form .input-wrapper input::placeholder {
+  color: #9ca3af;
+}
+
+.contact-form .input-wrapper input:focus {
+  outline: none;
+}
+
+/* Consent Checkbox */
+.contact-form .consent {
+  margin: 0;
+  font-size: 13px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0;
+}
+
+.contact-form .consent label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  line-height: 1.6;
+}
+
+.contact-form .consent input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #50cada;
+}
+
+.contact-form .consent span {
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: left;
+}
+
+/* Human Verification Checkbox */
+.contact-form .human-verification {
+  margin: 0;
+}
+
+.contact-form .human-verification .checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  user-select: none;
+  gap: 10px;
+}
+
+.contact-form .human-verification .checkbox-container input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.contact-form .human-verification .checkmark {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.contact-form .human-verification .checkbox-container:hover input ~ .checkmark {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-form .human-verification .checkbox-container input:checked ~ .checkmark {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.contact-form .human-verification .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.contact-form .human-verification .checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.contact-form .human-verification .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #0f2234;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.contact-form .checkbox-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* reCAPTCHA Container */
+.recaptcha-container-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin: 4px 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Submit Button */
+.contact-form .footer-submit-button {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #d1d5db;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+
+.contact-form .footer-submit-button:hover:not(:disabled) {
+  background-color: #9ca3af;
+}
+
+.contact-form .footer-submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.contact-form .footer-submit-button:disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+/* Status Message */
+.contact-form .status-message {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 14px;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.contact-form .status-message.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.contact-form .status-message.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Loader */
+.loader {
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Legal/Disclaimer Section */
+.footer-legal {
+  background: #0a1825;
+  color: #ffffff;
+  padding: 20px 40px;
+  margin-top: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-legal-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-disclaimer-content {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.disclaimer-title {
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.disclaimer-text {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+  text-align: justify;
+}
+
+.footer-legal-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-direction: column;
+}
+
+.footer-copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+  align-items: center;
+}
+
+.copyright-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-legal-text {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+}
+
+.cookie-settings-btn {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cookie-settings-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #50cada;
+  color: #50cada;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .footer-contact-container {
+    padding: 35px 40px 0;
+  }
+
+  .footer-top-section {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .footer-links-container {
+    gap: 50px;
+  }
+
+  .footer-brand-description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-contact-container {
+    padding: 35px 30px 0;
+  }
+
+  .footer-top-section {
+    gap: 50px;
+    padding-bottom: 50px;
+  }
+
+  .footer-links-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footer-right-column {
+    gap: 40px;
+  }
+
+  .contact-form-section {
+    max-width: 100%;
+  }
+
+  .footer-legal {
+    padding: 40px 30px;
+  }
+
+  .footer-legal-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-copyright {
+    width: 100%;
+  }
+
+  .footer-legal-text {
+    max-width: 100%;
+  }
+
+  .cookie-settings-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-contact-container {
+    padding: 35px 20px 0;
+  }
+
+  .footer-top-section {
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-brand-title {
+    font-size: 28px;
+  }
+
+  .footer-links-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-legal {
+    padding: 35px 20px;
+  }
+
+  .footer-legal-bottom {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-contact-container {
+    padding: 35px 15px 0;
+  }
+
+  .contact-form-section {
+    width: 80%;
+    margin: -5px;
+    place-self: center;
+
+  }
+
+  .footer-top-section {
+    gap: 35px;
+    padding-bottom: 35px;
+  }
+
+  .footer-brand-title {
+    font-size: 24px;
+  }
+
+  .footer-brand-description {
+    font-size: 14px;
+  }
+
+  .footer-contact-item {
+    font-size: 14px;
+  }
+
+  .footer-link-title {
+    font-size: 15px;
+  }
+
+  .footer-link-list li a {
+    font-size: 13px;
+  }
+
+  .newsletter-title {
+    font-size: 18px;
+  }
+
+  .newsletter-description {
+    font-size: 13px;
+  }
+
+  .footer-legal {
+    padding: 30px 15px;
+  }
+
+  .disclaimer-title {
+    font-size: 18px;
+  }
+
+  .disclaimer-text {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .copyright-text,
+  .footer-legal-text {
+    font-size: 12px;
+  }
+
+}
