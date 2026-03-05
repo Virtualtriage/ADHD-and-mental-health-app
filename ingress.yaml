@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vt-adhd-frontend
+  namespace: data-services
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - adhd.virtualtriage.ai
+      secretName: adhd-virtualtriage-ai-tls
+  rules:
+    - host: adhd.virtualtriage.ai
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vt-adhd-frontend-svc
+                port:
+                  number: 80

@@ -1,0 +1,64 @@
+.appointment-booked-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.appointment-booked-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  justify-items: center;
+}
+
+.appointment-booked-modal-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #50cada;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.appointment-booked-modal-button:hover {
+  background-color: #3a929e;
+}
+
+.appointment-booked-link {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  color: #50cada !important;
+  background-color: aliceblue;
+  align-items: center;
+  place-self: center;
+  transition: 0.3s;
+  border: 1px solid #50cada;
+  margin: 5px;
+  border-radius: 8px;
+  padding: 8px;
+  width: -webkit-fill-available;
+}
+
+.appointment-booked-link:hover {
+  text-decoration: none;
+  color: white !important;
+  background-color: #50cada;
+}
+
+.appointment-calendar-buttons a:hover {
+  text-decoration: none !important;
+}
+
+.appointment-booked-modal-content h2 {
+  color: #50cada;
+}

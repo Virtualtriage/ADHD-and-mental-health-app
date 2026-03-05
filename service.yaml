@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vt-adhd-frontend-svc
+  namespace: data-services
+spec:
+  selector:
+    app: vt-adhd-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
